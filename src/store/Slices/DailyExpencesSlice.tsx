@@ -1,14 +1,22 @@
-import { createSlice } from "@reduxjs/toolkit";
-import DailyExpences from "../../components/DailyExpences";
+import { createSlice } from '@reduxjs/toolkit'
+
+export interface DailyExpencesSlice {
+  DailyExpences: number
+}
+
+const initialState: DailyExpencesSlice = {
+  DailyExpences: 0,
+}
 
 export const DailyExpencesSlice = createSlice({
-    name: "DailyExpences",
-    initialState: {DailyExpences},
+  name: 'DailyExpences',
+  initialState,
     reducers: {
-        addExpence: (state, action) => 
+        addExpences: (state, action) => {
             state.DailyExpences = action.payload
-    }
+      }
+  },
 })
 
-export const { addExpence } = DailyExpencesSlice.actions;
-export default DailyExpencesSlice.reducer;
+export const { addExpences } = DailyExpencesSlice.actions
+export default DailyExpencesSlice.reducer

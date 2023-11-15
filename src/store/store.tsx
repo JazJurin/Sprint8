@@ -2,13 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import DailyExpencesSlice from "./Slices/DailyExpencesSlice";
 import ExpencesBalanceSlice from "./Slices/ExpenceBalanceSlice";
 import GraphDataSlice from "./Slices/GraphDataSlice";
-import PercentageSlice from "./Slices/PercentageSlice";
+import VariationSlice from "./Slices/VariationSlice";
 
 export const store = configureStore({
     reducer: {
-        DailyExpences: DailyExpencesSlice.reducer,
-        ExpencesBalance: ExpencesBalanceSlice.reducer,
-        GraphData: GraphDataSlice.reducer,
-        Percentage: PercentageSlice.reducer        
+        DailyExpences: DailyExpencesSlice,
+        ExpencesBalance: ExpencesBalanceSlice,
+        GraphData: GraphDataSlice,
+        Variation: VariationSlice
     }
+    
 })

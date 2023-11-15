@@ -1,19 +1,18 @@
-import './App.css'
-import DailyExpences from './components/DailyExpences'
-import ExpenceBalance from './components/ExpenceBalance'
-import GraphData from './components/GraphData'
-import Percentage from './components/Percentage'
+import "./App.css";
+import DailyExpences from "./components/DailyExpences";
+import ExpenceBalance from "./components/ExpenceBalance";
+import GraphData from "./components/GraphData";
+import Variation from "./components/Variation";
 
 function App() {
-
   return (
     <>
-      <DailyExpences />
       <ExpenceBalance />
+      <DailyExpences />      
       <GraphData />
-      <Percentage />
+      <Variation />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

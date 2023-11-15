@@ -1,14 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import ExpenceBalance from "../../components/ExpenceBalance";
 
-export const ExpencesBalanceSlice = createSlice({
-    name: "ExpenceBalance",
-    initialState: {ExpenceBalance},
-    reducers: {
-        addBalance: (state, action) => 
-            state.ExpenceBalance = action.payload
-    }
-})
+export interface ExpenceBalanceSlice {
+  ExpenceBalance: number;
+}
 
-export const { addBalance } = ExpencesBalanceSlice.actions;
-export default ExpencesBalanceSlice.reducer;
+const initialState: ExpenceBalanceSlice = {
+  ExpenceBalance: 0,
+};
+
+export const ExpenceBalanceSlice = createSlice({
+  name: "ExpenceBalance",
+  initialState: initialState,
+  reducers: {
+      addBalance: (state, action) => {
+        return { ...state, ExpenceBalance: action.payload };
+    },
+  },
+});
+
+export const { addBalance } = ExpenceBalanceSlice.actions;
+export default ExpenceBalanceSlice.reducer;

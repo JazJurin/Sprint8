@@ -1,9 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import GraphData from "../../components/GraphData";
-
+export interface GraphDataSlice {
+    GraphData: number;
+  }
+  
+  const initialState: GraphDataSlice = {
+    GraphData: 0,
+  };
 export const GraphDataSlice = createSlice({
     name: "GraphData",
-    initialState: {GraphData},
+    initialState,
     reducers: {
         addGraph: (state, action) => 
             state.GraphData = action.payload
