@@ -10,7 +10,7 @@ const initialState: ExpenceBalanceSlice = {
 
 export const ExpenceBalanceSlice = createSlice({
   name: "ExpenceBalance",
-  initialState: initialState,
+  initialState,
   reducers: {
       addBalance: (state, action) => {
         return { ...state, ExpenceBalance: action.payload };

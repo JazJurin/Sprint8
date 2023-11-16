@@ -11,7 +11,7 @@ const ExpenceBalance = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/expences/1");
+        const response = await fetch("http://localhost:3000/expenses/1");
         const data = await response.json();
         console.log("Fetched data:", data);
 
@@ -76,9 +76,10 @@ const ExpenceBalance = () => {
                 />
               </svg>
             </button>
-          </div>
+          </div>          
         </div>
       </div>
+      
     </>
   );
 };

@@ -8,8 +8,8 @@ function App() {
   return (
     <>
       <ExpenceBalance />
-      <DailyExpences />      
       <GraphData />
+      <DailyExpences />
       <Variation />
     </>
   );

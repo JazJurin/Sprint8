@@ -1,19 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-export interface GraphDataSlice {
-    GraphData: number;
-  }
   
-  const initialState: GraphDataSlice = {
-    GraphData: 0,
+  const initialState = {
+    labels: [],
+    datasets: [
+      {
+        label: "expences",
+        data: []
+      }
+    ]
   };
 export const GraphDataSlice = createSlice({
-    name: "GraphData",
-    initialState,
-    reducers: {
-        addGraph: (state, action) => 
-            state.GraphData = action.payload
+  name: "GraphData",
+  initialState,
+  reducers: {
+    setGraphData: (state, action) => {
+      return action.payload;
     }
-})
+  }
+});
 
-export const { addGraph } = GraphDataSlice.actions;
+export const { setGraphData } = GraphDataSlice.actions;
 export default GraphDataSlice.reducer;
