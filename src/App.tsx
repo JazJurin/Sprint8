@@ -1,15 +1,15 @@
 import "./App.css";
-import DailyExpences from "./components/DailyExpences";
-import ExpenceBalance from "./components/ExpenceBalance";
+import DailyExpenses from "./components/DailyExpenses";
+import ExpenseBalance from "./components/ExpenseBalance";
 import GraphData from "./components/GraphData";
 import Variation from "./components/Variation";
 
 function App() {
   return (
     <>
-      <ExpenceBalance />
+      <ExpenseBalance />
       <GraphData />
-      <DailyExpences />
+      <DailyExpenses />
       <Variation />
     </>
   );

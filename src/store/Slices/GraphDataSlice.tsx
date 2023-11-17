@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
     labels: [],
     datasets: [
       {
-        label: "expences",
+        label: "expenses",
         data: []
       }
     ]

@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addBalance } from "../store/Slices/ExpenceBalanceSlice";
+import { addBalance } from "../store/Slices/ExpenseBalanceSlice";
 
-const ExpenceBalance = () => {
+const ExpenseBalance = () => {
   const dispatch = useDispatch();
-  const expenceBalance = useSelector(
-    (state) => state.ExpencesBalance?.ExpenceBalance
+  const expenseBalance = useSelector(
+    (state) => state.ExpensesBalance?.ExpenseBalance
   );
 
   useEffect(() => {
@@ -27,15 +27,15 @@ const ExpenceBalance = () => {
     fetchData();
   }, [dispatch]);
 
-  const calculateBalance = (expenceData) => {
-    if (expenceData && expenceData.week) {
-      const expenceWeek = expenceData.week;
+  const calculateBalance = (expenseData) => {
+    if (expenseData && expenseData.week) {
+      const expenseWeek = expenseData.week;
 
-      const totalExpences = Object.values(expenceWeek).reduce(
-        (total, expence) => total + expence,
+      const totalExpenses = Object.values(expenseWeek).reduce(
+        (total, expense) => total + expense,
         0
       );
-      const averageBalance = totalExpences / Object.keys(expenceWeek).length;
+      const averageBalance = totalExpenses / Object.keys(expenseWeek).length;
 
       return averageBalance.toFixed(2);
     }
@@ -47,8 +47,8 @@ const ExpenceBalance = () => {
     <>
       <div className="card w-96 bg-primary text-primary-content">
         <div className="card-body">
-          <h3 className="card-title">Expence Balance: </h3>
-          <div>{expenceBalance}</div>
+          <h3 className="card-title">Expense Balance: </h3>
+          <div>{expenseBalance}</div>
           <div className="flex card-actions justify-end">
             <button className="btn btn-ghost">
               <svg
@@ -76,12 +76,11 @@ const ExpenceBalance = () => {
                 />
               </svg>
             </button>
-          </div>          
+          </div>
         </div>
       </div>
-      
     </>
   );
 };
 
-export default ExpenceBalance;
+export default ExpenseBalance;

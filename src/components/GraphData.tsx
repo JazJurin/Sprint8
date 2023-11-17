@@ -73,5 +73,10 @@ export default function GraphData() {
     },
   };
 
-  return <Bar data={chartData} options={options} />;
+  return (
+    <>
+    <h3>Expenses - Last Week</h3>
+      <Bar data={chartData} options={options} />
+      </>
+  )
 }
