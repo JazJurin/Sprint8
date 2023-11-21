@@ -4,17 +4,19 @@ import {
   setDailyExpenses,
   setYesterdayExpenses,
 } from "../store/Slices/DailyExpensesSlice";
+import { useTranslation } from "react-i18next";
 
 export default function DailyExpenses() {
   const dispatch = useDispatch();
   const dailyExpenses = useSelector((state) => state.DailyExpenses.DailyExpenses);
   const yesterdayExpenses = useSelector((state) => state.DailyExpenses.YesterdayExpenses);
+  const { t } = useTranslation(["welcome"]);
 
   useEffect(() => {
     const fetchExpensesData = async () => {
       try {
         const today = new Date();
-        const dayIndex = today.getDay(); // 0 for Sunday, 1 for Monday, etc.
+        const dayIndex = today.getDay(); 
 
         const dailyResponse = await fetch("http://localhost:3000/expenses/1");
         const responseData = await dailyResponse.json();
@@ -28,7 +30,6 @@ export default function DailyExpenses() {
           console.error("Invalid expenses data format or no data for today:", responseData);
         }
 
-        // Obtener el día anterior
         const daysOfWeek = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
         const yesterdayIndex = (dayIndex - 1 + daysOfWeek.length) % daysOfWeek.length;
         const yesterdayName = daysOfWeek[yesterdayIndex];
@@ -52,9 +53,9 @@ export default function DailyExpenses() {
 
   return (
     <>
-      <h3>Daily expenses for {new Date().toLocaleDateString('en-US', { weekday: 'long' })}</h3>
+      <h3>{t("title3")} {new Date().toLocaleDateString('en-US', { weekday: 'long' })}</h3>
       <p>{formattedDailyExpenses}</p>
-      <h3>Respect yesterday</h3>
+      <h3>{t("title4")}</h3>
       <p>{variationPercentage.toFixed(2)}%</p>
     </>
   );

@@ -1,12 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addBalance } from "../store/Slices/ExpenseBalanceSlice";
+import { useTranslation } from "react-i18next";
 
 const ExpenseBalance = () => {
   const dispatch = useDispatch();
   const expenseBalance = useSelector(
     (state) => state.ExpensesBalance?.ExpenseBalance
   );
+  const { t } = useTranslation(["welcome"])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,7 +49,7 @@ const ExpenseBalance = () => {
     <>
       <div className="card w-96 bg-primary text-primary-content">
         <div className="card-body">
-          <h3 className="card-title">Expense Balance: </h3>
+          <h3 className="card-title">{t("title1")} </h3>
           <div>{expenseBalance}</div>
           <div className="flex card-actions justify-end">
             <button className="btn btn-ghost">
