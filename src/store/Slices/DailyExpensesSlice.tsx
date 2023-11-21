@@ -23,5 +23,6 @@ export const DailyExpensesSlice = createSlice({
   },
 });
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const { setDailyExpenses, setYesterdayExpenses } = DailyExpensesSlice.actions;
 export default DailyExpensesSlice.reducer;

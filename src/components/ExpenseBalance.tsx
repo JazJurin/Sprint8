@@ -87,4 +87,3 @@ const ExpenseBalance: React.FC = () => {
 };
 
 export default ExpenseBalance;
-

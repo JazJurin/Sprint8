@@ -18,5 +18,6 @@ export const ExpenseBalanceSlice = createSlice({
   },
 });
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const { addBalance } = ExpenseBalanceSlice.actions;
 export default ExpenseBalanceSlice.reducer;

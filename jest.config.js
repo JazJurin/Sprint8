@@ -1,9 +1,5 @@
-/* eslint-disable no-undef */
-module.exports = {
-    testEnvironment: 'jest-environment-jsdom',
-    setupFiles: ['./jest.setup.js'],
-    moduleNameMapper: {
-        "^.+\\.svg$": "jest-svg-transformer",
-	"\\.(css|less|scss)$": "identity-obj-proxy",
-  }
-}
+export const setupFilesAfterEnv = ["@testing-library/react"];
+export const testEnvironment = "jsdom";
+export const moduleNameMapper = {
+  "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+};
