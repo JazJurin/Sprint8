@@ -5,11 +5,12 @@ import {
   setYesterdayExpenses,
 } from "../store/Slices/DailyExpensesSlice";
 import { useTranslation } from "react-i18next";
+import { RootState } from "../store/store"; 
 
 export default function DailyExpenses() {
   const dispatch = useDispatch();
-  const dailyExpenses = useSelector((state) => state.DailyExpenses.DailyExpenses);
-  const yesterdayExpenses = useSelector((state) => state.DailyExpenses.YesterdayExpenses);
+  const dailyExpenses = useSelector((state: RootState) => state.DailyExpenses.DailyExpenses);
+  const yesterdayExpenses = useSelector((state: RootState) => state.DailyExpenses.YesterdayExpenses);
   const { t } = useTranslation(["welcome"]);
 
   useEffect(() => {
@@ -60,6 +61,7 @@ export default function DailyExpenses() {
     </>
   );
 }
+
 
 
 

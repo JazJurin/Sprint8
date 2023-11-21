@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addBalance } from "../store/Slices/ExpenseBalanceSlice";
 import { useTranslation } from "react-i18next";
+import { RootState } from "../store/store";
 
-const ExpenseBalance = () => {
+const ExpenseBalance: React.FC = () => {
   const dispatch = useDispatch();
   const expenseBalance = useSelector(
-    (state) => state.ExpensesBalance?.ExpenseBalance
+    (state: RootState) => state.ExpensesBalance?.ExpenseBalance
   );
-  const { t } = useTranslation(["welcome"])
+  const { t } = useTranslation(["welcome"]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +30,7 @@ const ExpenseBalance = () => {
     fetchData();
   }, [dispatch]);
 
-  const calculateBalance = (expenseData) => {
+  const calculateBalance = (expenseData: { week?: Record<string, number> }) => {
     if (expenseData && expenseData.week) {
       const expenseWeek = expenseData.week;
 
@@ -42,14 +43,14 @@ const ExpenseBalance = () => {
       return averageBalance.toFixed(2);
     }
 
-    return 0;
+    return "0";
   };
 
   return (
     <>
       <div className="card w-96 bg-primary text-primary-content">
         <div className="card-body">
-          <h3 className="card-title">{t("title1")} </h3>
+          <h3 className="card-title">{t("title1")}</h3>
           <div>{expenseBalance}</div>
           <div className="flex card-actions justify-end">
             <button className="btn btn-ghost">
@@ -86,3 +87,4 @@ const ExpenseBalance = () => {
 };
 
 export default ExpenseBalance;
+

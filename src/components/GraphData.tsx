@@ -3,6 +3,7 @@ import { Bar } from "react-chartjs-2";
 import { setGraphData } from "../store/Slices/GraphDataSlice";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { RootState } from "../store/store";
 
 import {
   Chart as ChartJS,
@@ -26,28 +27,29 @@ ChartJS.register(
   Legend,
   Filler
 );
+
 export default function GraphData() {
   const dispatch = useDispatch();
-  const chartData = useSelector((state) => state.GraphData);
+  const chartData = useSelector((state: RootState) => state.GraphData);
   const { t } = useTranslation(["welcome"]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/expenses/1"); 
+        const response = await fetch("http://localhost:3000/expenses/1");
         const data = await response.json();
-          dispatch(
-            setGraphData({
-              labels: Object.keys(data.week),
-              datasets: [
-                {
-                  label: "expenses",
-                  data: Object.values(data.week),
-                  backgroundColor: "rgba(0, 220, 195, 0.5)",
-                },
-              ],
-            })
-          );
+        dispatch(
+          setGraphData({
+            labels: Object.keys(data.week),
+            datasets: [
+              {
+                label: "expenses",
+                data: Object.values(data.week),
+                backgroundColor: "rgba(0, 220, 195, 0.5)",
+              },
+            ],
+          })
+        );
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -58,7 +60,6 @@ export default function GraphData() {
 
   const options = {
     responsive: true,
-    animation: false,
     plugins: {
       legend: {
         display: false,
@@ -77,8 +78,9 @@ export default function GraphData() {
 
   return (
     <>
-    <h3>{t("title2")}</h3>
+      <h3>{t("title2")}</h3>
       <Bar data={chartData} options={options} />
-      </>
-  )
+    </>
+  );
 }
+

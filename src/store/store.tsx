@@ -7,8 +7,10 @@ import VariationSlice from "./Slices/VariationSlice";
 export const store = configureStore({
   reducer: {
     DailyExpenses: DailyExpensesSlice,
-    ExpesesBalance: ExpensesBalanceSlice,
+    ExpensesBalance: ExpensesBalanceSlice,
     GraphData: GraphDataSlice,
     Variation: VariationSlice,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;
