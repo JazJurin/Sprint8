@@ -1,0 +1,40 @@
+{
+  "expenses": [
+    {
+      "id": 1,
+      "week": {
+        "monday": 101,
+        "tuesday": 150,
+        "wednesday": 230,
+        "thursday": 180,
+        "friday": 310,
+        "saturday": 290,
+        "sunday": 170
+      }
+    },
+    {
+      "id": 2,
+      "week": {
+        "monday": 104,
+        "tuesday": 130,
+        "wednesday": 215,
+        "thursday": 145,
+        "friday": 357,
+        "saturday": 289,
+        "sunday": 163
+      }
+    },
+    {
+      "id": 3,
+      "week": {
+        "monday": 148,
+        "tuesday": 198,
+        "wednesday": 292,
+        "thursday": 154,
+        "friday": 301,
+        "saturday": 264,
+        "sunday": 109
+      }
+    }
+  ]
+}

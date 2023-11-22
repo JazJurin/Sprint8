@@ -11,7 +11,8 @@
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "Node",
-    "allowImportingTsExtensions": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
@@ -24,8 +25,9 @@
   },
   "include": [
     "src",
-    "App.test.tsx"
-, "jest.setup.js"  ],
+    "App.test.tsx",
+    "jest.setup.js"
+  ],
   "references": [
     {
       "path": "./tsconfig.node.json"

@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import DailyExpenses from "./components/DailyExpenses";
+import ExpenseBalance from "./components/ExpenseBalance";
+import GraphData from "./components/GraphData";
+import Variation from "./components/Variation";
+import { useTranslation } from "react-i18next";
+import { Suspense } from "react";
+import eeuu from "./images/eeuu.png";
+import cat from "./images/cat.png";
+import esp from "./images/esp.png"
 
-function App() {
-  const [count, setCount] = useState(0)
+function Welcome() {
+  const { t, i18n } = useTranslation(["welcome"]);
+  const changeLangEn = () => {
+    i18n.changeLanguage("en");
+  };
+  const changeLangEs = () => {
+    i18n.changeLanguage("es");
+  };
+  const changeLangCat = () => {
+    i18n.changeLanguage("cat");
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h2>{t("title")}</h2>
+      <button onClick={changeLangEn} tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img  src={eeuu} />
+        </div>
+      </button>
+      <button onClick={changeLangCat} tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img  src={cat} />
+        </div>
+      </button>
+      <button onClick={changeLangEs} tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img  src={esp} />
+        </div>
+      </button>
+      <ExpenseBalance />
+      <GraphData />
+      <DailyExpenses />
+      <Variation />
     </>
-  )
+  );
+}
+function App() {
+  return (
+    <Suspense fallback="Cargando traducciones">
+      <Welcome />
+    </Suspense>
+  );
 }
 
-export default App
+export default App;
